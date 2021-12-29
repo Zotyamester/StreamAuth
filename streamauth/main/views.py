@@ -24,6 +24,7 @@ def on_publish_done(request):
 
     stream = get_object_or_404(Stream, key=stream_key)
 
-    stream.update(live_at=None)
+    stream.live_at = None
+    stream.save()
 
     return HttpResponse(status=200)  # 200 OK
